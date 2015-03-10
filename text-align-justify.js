@@ -46,17 +46,19 @@ var justify = function(str, len) {
 
 	var currLine = [];
 	var currLineLength = 0;
-	
+	var totalWordLength = 0;
 	words.forEach(function(word, index) {
 		if (currLineLength + word.length + 1 < len) {
+			totalWordLength += word.length;
 			currLineLength += word.length + 1;
 			currLine.push(word);
 		} else {
-			var requiredSpaces = len - (currLineLength - currLine.length - 1);
+			var requiredSpaces = len - (totalWordLength);
 			lines.push(justifyLine(currLine, requiredSpaces));
 			currLine = [];
 			currLine.push(word);
 			currLineLength = word.length - 1;
+			totalWordLength = word.length;
 		}
 	});
 
