@@ -5,35 +5,8 @@ var addSpaces = function(line, requiredSpaces) {
 	}
 
 	var words = line.slice(0, line.length -1);
-	var wordsObject = [];
-	words.forEach(function(word) {
-		wordsObject.push({spaces: []});
-	});
-	
-	while (requiredSpaces > 0) {
-		var lineLength = line.length - 1;
-	
-		for (var i = 0; i < words.length && requiredSpaces > 0; i++) {
-			//line.splice(line.indexOf(words[i]) + 1, 0, ' ');	
-			wordsObject[i].spaces.push(' ');
-			requiredSpaces--;
-		}
-	}
+	var spacePositions = word.length - 1;
 
-	var spaces = 0;
-	wordsObject.forEach(function(o, index) {
-		for (var i = 0; i < o.spaces.length; i++) {
-			words.splice(index + 1 + spaces + i, 0, ' ');
-		}
-
-		spaces += o.spaces.length;
-	});
-
-	if (line.length > 1) {
-		return words.concat(line[line.length - 1]);
-	} 
-
-	return words;
 }
 
 var justify = function(str, len) {
