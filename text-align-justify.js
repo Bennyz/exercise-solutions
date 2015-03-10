@@ -4,7 +4,7 @@ var justifyLine = function(line, requiredSpaces) {
 		return line;
 	}
 
-	var words = line.slice(0, line.length -1);
+	var words = line.slice(0, line.length - 1);
 	var numberOfSpacePositions = words.length;
 	var spacePerPosition = Math.floor(requiredSpaces / numberOfSpacePositions);
 	var remainingSpaces = requiredSpaces % numberOfSpacePositions;
@@ -52,11 +52,11 @@ var justify = function(str, len) {
 			currLineLength += word.length + 1;
 			currLine.push(word);
 		} else {
-			var requiredSpaces = len - (currLineLength - currLine.length);
+			var requiredSpaces = len - (currLineLength - currLine.length - 1);
 			lines.push(justifyLine(currLine, requiredSpaces));
 			currLine = [];
 			currLine.push(word);
-			currLineLength = word.length + 1;
+			currLineLength = word.length - 1;
 		}
 	});
 
