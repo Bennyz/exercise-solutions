@@ -1,6 +1,6 @@
 var justifyLine = function(line, requiredSpaces) {
 
-	// No need to justify if there's just one line
+	// No need to justify if there's just one word
 	if (line.length == 1) {
 		return line;
 	}
